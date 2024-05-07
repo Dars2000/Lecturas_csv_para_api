@@ -25,44 +25,44 @@ def aplicar_logica(valor):
 
 # Función para actualizar las detecciones y enviar los datos a la API
 def actualizar_detecciones(linea):
-    if len(linea) == 1:
-        deteccion1 = int(linea[0])
+    if len(linea) == 2:
+        deteccion1, tiempo = map(int, linea)
         deteccion1 = aplicar_logica(deteccion1)
         print(f"deteccion1: {deteccion1}")
-        for _ in range(10):  # Actualizar cada segundo durante 15 segundos
+        for _ in range(tiempo):  # Actualizar cada segundo durante 15 segundos
             datos_actuales = {'deteccion1': deteccion1}
             enviar_a_api(datos_actuales)
             r = requests.post(f"http://localhost:5030/escribir_deteccion1?s={deteccion1}")
             time.sleep(1)
-    elif len(linea) == 2:
-        deteccion1, deteccion2 = map(int, linea)
+    elif len(linea) == 3:
+        deteccion1, deteccion2, tiempo = map(int, linea)
         deteccion1 = aplicar_logica(deteccion1)
         deteccion2 = aplicar_logica(deteccion2)
         print(f"deteccion1: {deteccion1}")
         print(f"deteccion2: {deteccion2}")
-        for _ in range(10):  # Actualizar cada segundo durante 15 segundos
+        for _ in range(tiempo):  # Actualizar cada segundo durante 15 segundos
             datos_actuales = {'deteccion1': deteccion1, 'deteccion2': deteccion2}
             enviar_a_api(datos_actuales)
             r = requests.post(f"http://localhost:5030/escribir_deteccion1?s={deteccion1}")
             r = requests.post(f"http://localhost:5030/escribir_deteccion2?s={deteccion2}")
             time.sleep(1)
-    elif len(linea) == 3:
-        deteccion1, deteccion2, deteccion3 = map(int, linea)
+    elif len(linea) == 4:
+        deteccion1, deteccion2, deteccion3, tiempo = map(int, linea)
         deteccion1 = aplicar_logica(deteccion1)
         deteccion2 = aplicar_logica(deteccion2)
         deteccion3 = aplicar_logica(deteccion3)
         print(f"deteccion1: {deteccion1}")
         print(f"deteccion2: {deteccion2}")
         print(f"deteccion3: {deteccion3}")
-        for _ in range(10):  # Actualizar cada segundo durante 15 segundos
+        for _ in range(tiempo):  # Actualizar cada segundo durante 15 segundos
             datos_actuales = {'deteccion1': deteccion1, 'deteccion2': deteccion2, 'deteccion3': deteccion3}
             enviar_a_api(datos_actuales)
             r = requests.post(f"http://localhost:5030/escribir_deteccion1?s={deteccion1}")
             r = requests.post(f"http://localhost:5030/escribir_deteccion2?s={deteccion2}")
             r = requests.post(f"http://localhost:5030/escribir_deteccion3?s={deteccion3}")
             time.sleep(1)
-    elif len(linea) == 4:
-        deteccion1, deteccion2, deteccion3, deteccion4 = map(int, linea)
+    elif len(linea) == 5:
+        deteccion1, deteccion2, deteccion3, deteccion4, tiempo = map(int, linea)
         deteccion1 = aplicar_logica(deteccion1)
         deteccion2 = aplicar_logica(deteccion2)
         deteccion3 = aplicar_logica(deteccion3)
@@ -71,7 +71,7 @@ def actualizar_detecciones(linea):
         print(f"deteccion2: {deteccion2}")
         print(f"deteccion3: {deteccion3}")
         print(f"deteccion4: {deteccion4}")
-        for _ in range(10):  # Actualizar cada segundo durante 15 segundos
+        for _ in range(tiempo):  # Actualizar cada segundo durante 15 segundos
             datos_actuales = {'deteccion1': deteccion1, 'deteccion2': deteccion2, 'deteccion3': deteccion3, 'deteccion4': deteccion4}
             enviar_a_api(datos_actuales)
             r = requests.post(f"http://localhost:5030/escribir_deteccion1?s={deteccion1}")

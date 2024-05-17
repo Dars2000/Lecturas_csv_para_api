@@ -1,12 +1,14 @@
 import uvicorn
 from fastapi import FastAPI
 import threading
-
+from prometheus_client import Counter, start_http_server
+from fastapi.responses import Response
 app = FastAPI(
     title="Segundos",
     version="0.0.1",
 )
-
+#Metricas
+#REQUEST_COUNT = Counter('request_count', 'Number of requests served')
 deteccion1 = None
 lock_deteccion1 = threading.Lock()
 timer_deteccion1 = None
@@ -130,6 +132,14 @@ def leer_deteccion4():
     with lock_deteccion4:
         d = deteccion4
     return d
+
+# Punto final para exponer métricas
+#@app.get("/metrics")
+#async def metrics():
+#   return Response(REQUEST_COUNT.registry.collect(), content_type='text/plain')
+
+
+
 
 if __name__ == "__main__":
     uvicorn.run("API-Prueba:app", host="localhost", port=5030, log_level="info", reload=True)

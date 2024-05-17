@@ -48,7 +48,7 @@ def actualizar_detecciones(linea, linea_index):
         for _ in range(tiempo):
             datos_actuales = {'deteccion1': deteccion1}
             enviar_a_api(datos_actuales)
-            requests.post(f"http://192.168.95.190:5030/escribir_deteccion1?s={deteccion1}")
+            requests.post(f"http://localhost:5030/escribir_deteccion1?s={deteccion1}")
             time.sleep(1)
         actualizar_linea_csv(linea_index, [deteccion1])
     elif len(linea) == 3:
@@ -61,8 +61,8 @@ def actualizar_detecciones(linea, linea_index):
         for _ in range(tiempo):
             datos_actuales = {'deteccion1': deteccion1, 'deteccion2': deteccion2}
             enviar_a_api(datos_actuales)
-            requests.post(f"http://192.168.95.190:5030/escribir_deteccion1?s={deteccion1}")
-            requests.post(f"http://192.168.95.190:5030/escribir_deteccion2?s={deteccion2}")
+            requests.post(f"http://localhost:5030/escribir_deteccion1?s={deteccion1}")
+            requests.post(f"http://localhost:5030/escribir_deteccion2?s={deteccion2}")
             time.sleep(1)
         actualizar_linea_csv(linea_index, [deteccion1, deteccion2])
     elif len(linea) == 4:
@@ -77,9 +77,9 @@ def actualizar_detecciones(linea, linea_index):
         for _ in range(tiempo):
             datos_actuales = {'deteccion1': deteccion1, 'deteccion2': deteccion2, 'deteccion3': deteccion3}
             enviar_a_api(datos_actuales)
-            requests.post(f"http://192.168.95.190:5030/escribir_deteccion1?s={deteccion1}")
-            requests.post(f"http://192.168.95.190:5030/escribir_deteccion2?s={deteccion2}")
-            requests.post(f"http://192.168.95.190:5030/escribir_deteccion3?s={deteccion3}")
+            requests.post(f"http://localhost:5030/escribir_deteccion1?s={deteccion1}")
+            requests.post(f"http://localhost:5030/escribir_deteccion2?s={deteccion2}")
+            requests.post(f"http://localhost:5030/escribir_deteccion3?s={deteccion3}")
             time.sleep(1)
         actualizar_linea_csv(linea_index, [deteccion1, deteccion2, deteccion3])
     elif len(linea) == 5:
@@ -96,10 +96,10 @@ def actualizar_detecciones(linea, linea_index):
         for _ in range(tiempo):
             datos_actuales = {'deteccion1': deteccion1, 'deteccion2': deteccion2, 'deteccion3': deteccion3, 'deteccion4': deteccion4}
             enviar_a_api(datos_actuales)
-            requests.post(f"http://192.168.95.190:5030/escribir_deteccion1?s={deteccion1}")
-            requests.post(f"http://192.168.95.190:5030/escribir_deteccion2?s={deteccion2}")
-            requests.post(f"http://192.168.95.190:5030/escribir_deteccion3?s={deteccion3}")
-            requests.post(f"http://192.168.95.190:5030/escribir_deteccion4?s={deteccion4}")
+            requests.post(f"http://localhost:5030/escribir_deteccion1?s={deteccion1}")
+            requests.post(f"http://localhost:5030/escribir_deteccion2?s={deteccion2}")
+            requests.post(f"http://localhost:5030/escribir_deteccion3?s={deteccion3}")
+            requests.post(f"http://localhost:5030/escribir_deteccion4?s={deteccion4}")
             time.sleep(1)
         actualizar_linea_csv(linea_index, [deteccion1, deteccion2, deteccion3, deteccion4])
     else:
